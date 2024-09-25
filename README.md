@@ -3,12 +3,9 @@
 *This is an old IST-242 asg from past semesters.*
 
 **NOTE: this is a totally optional project to give you a place to practice object modeling 
-and generally a nice sandbox to try out records and crafting immutable types using Java 22+.**
-> * see the `dtw-done-imm` branch for the JDK23 solution to this that involves immutable object modeling 
-> * see the `dtw-done-mutable` branch for the original 242 solution. 
-> * the test directory actually runs some unit tests on the types developed in this assignment
+and generally a nice sandbox to try out records and crafting immutable types using Java 22+.**==
 
-### Rules - if you aim to do this using strict-immutability:
+### Rules (for IST 311) - if you aim to do this using strict-immutability:
 1. no setters or mutators in any class (if you have any classes) 
 2. all fields should be `final`, all classes should be marked `final` to preclude extension
 3. make every type immutable (use records when possible for this) 
