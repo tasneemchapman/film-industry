@@ -3,7 +3,7 @@
 *This is an old IST-242 asg from past semesters.*
 
 **NOTE: this is a totally optional project to give you a place to practice object modeling 
-and generally a nice sandbox to try out records and crafting immutable types using Java 22+.**==
+and generally a nice sandbox to try out records and crafting immutable types using Java 22+.**
 
 ### Rules (for IST 311) - if you aim to do this using strict-immutability:
 1. no setters or mutators in any class (if you have any classes) 
