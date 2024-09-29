@@ -29,7 +29,6 @@ Here are some details on what each class should store:
 
 - first and last name
 - the number of years active in the film industry
-- list of awards won (this can just be a list of strings)
 - whether they use digital or film technologies
 
 The `specializesInGenre(..)` method for the director should only return `true` if the movie genre passed into the method is romance, comedy, horror, action, or drama; they can specialize in sci-fi, but only if they employ digital film technologies.
@@ -47,7 +46,6 @@ The producer can produce films in any genre with the exception of sci-fi
 
 - first and last name
 - which type of acting they specialize in; define an enum at the top of this class called `ActingStyle` to represent the datatype for this field; the enum should contain the values `METHOD`, `CHARACTER`, and `IMPROV`.
-- a list of the awards won (this can just be a list of strings).
 - the number of years active in the film industry.
 
 The actor can always specialize in action and romance. They can only specialize in horror or sci-fi if they have more than ten years of industry experience. And they can only specialize in comedy 
