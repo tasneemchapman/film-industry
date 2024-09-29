@@ -18,13 +18,8 @@ Your `Movie` class should not have any subclasses.
 
 ### Part 1: Stubbing out a FilmIndustryWorker hierarchy  
 
-Create classes for `FilmIndustryWorker`, `Actor`, `Producer`, and `Director`. For each of these classes you’ll need to define fields, getter methods, and constructors outlined below.
-
-Now do the following:
-
-- the `Actor`, `Producer`, and `Director` should extend `FilmIndustryWorker`.
-- create a new top-level enum by right-clicking the blue `src` folder, select `New Java Class >` and then select `Enum` from the dropdown list; name it: `MovieGenre`, then fill it with the following values: `HORROR`, `SCIFI`, `ACTION`, `DRAMA`, `ROMANCE`, and `COMEDY`.
-- the `FilmIndustryWorker` must include an abstract method called `specializesInGenre` which takes as a parameter a `MovieGenre` and returns a `boolean`.
+- have a `Director`, `Producer`, and `Actor`... they should extend `FilmIndustryWorker`.
+- the `FilmIndustryWorker` must include abstract method called `specializesInGenre` which takes as a parameter a `MovieGenre` and returns a `boolean`.
 - each subclass must call the `super(..)` constructor.
 - each class should define a `toString()` method (it’s ok if you choose to only override `toString()` in the `FilmIndustryWorker` base class).
 
