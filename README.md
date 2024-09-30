@@ -200,7 +200,3 @@ AFTER SORTING:
 (2008) The Dark Knight - ACTION - rated: R  
 (2015) The Martian - SCI_FI - rated: PG_13
 ```
-
-## Handin
-
-*no handin for this *
