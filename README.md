@@ -16,15 +16,86 @@ and generally a nice sandbox to try out records and crafting immutable types usi
 In this assignment, we will continue our efforts in modeling movies as well as those who direct, produce, and act in them using inheritance. In particular, the assignment will have you create a base class called `FilmIndustryWorker` with subclasses for `Actor`, `Director`, and `Producer`.  
 Your `Movie` class should not have any subclasses.  
 
-### Part 0: Define an `enum` type: `MovieGenre`
+## Preamble: an aside on enumeration types
 
-The enum(erated) type should contain the fixed set of values:
+An enum in Java defines a fixed set of values. For example, here's an `enum` for movie genres:
 
 ```java
 enum MovieGenre {
-  Horror, SciFi, Romance, Comedy, Drama, Action
+    Horror, SciFi, Romance, Comedy, Drama, Action
 }
 ```
+
+With this enum, you can now create variables of type MovieGenre:
+
+```java
+MovieGenre g;
+```
+
+And assign one of the predefined (i.e.: *enumerated*) genres:
+
+```java
+g = MovieGenre.Romance; // g refers to Romance
+g = MovieGenre.Horror;  // g refers to Horror
+```
+
+#### why use these? seems like an extra level of complexity...
+
+Without enums, you might write a method that accepts a string for a movie's genre:
+
+```java
+public boolean registerFilm(String name, String genre) {
+    if (genre.equals("Horror")) {
+        // process horror movie
+    }
+    return true; // movie registered
+}
+```
+
+This works, but there's a problem: What if someone passes "slasher" instead of "Horror"?
+
+```java
+registerFilm("Friday the 13th", "slasher");  // mistake!
+```
+
+Because "slasher" is just a string, it won't cause an error, but it's clearly not a valid genre. 
+So keeping the `genre` parameter of the `registerFilm` method above makes it very difficult (re: impossible)
+to know fully how to implement the `registerFilm` method... as there can be infinitely many strings passed into
+the method....:
+* "slash"
+* "s"
+* "sx"
+* " slash"
+* "" , etc.
+
+Enums provide a nice solution to this issue by restricting input to valid movie genres only. We'll improve this 
+(still purely hypothetical) method by using the `MovieGenre` enum we defined above:
+
+```java
+public boolean registerFilm(String name, MovieGenre genre) {
+    if (genre == MovieGenre.Horror) {
+        // process horror movie
+    }
+    return true; // movie registered
+}
+```
+Now, only valid genres can be passed:
+
+```java
+registerFilm("Friday the 13th", MovieGenre.Horror); // correct
+```
+
+If someone tries to use an invalid genre:
+
+```java
+registerFilm("Friday the 13th", "slasher"); // compile-time error (doesn't even start executing your code)!
+```
+
+The compiler catches the mistake, ensuring only valid values from MovieGenre are used.
+
+> TLDR/takeaway: using a 'flat' `String` as the datatype for everything doesn't always yield
+> simple or correct code... using java's static type system can enforce a certain level of compile-time
+> code correctness guarantees!
 
 ### Part 1: Stubbing out a FilmIndustryWorker hierarchy  
 
@@ -69,7 +140,7 @@ The `Movie` class should be able to store the following as fields:
 - the `Director` of the movie
 - the `Producer` of the movie
 - the `int` year in which it was released
-- the `MPAARating` of the movie (you can reuse the enum from your previous assignment for this)
+- the `MPAARating` of the movie (here `MPAARating` should be another enum type containing values R, PG, G, )
 - a list of `Actor`s starring in the movie
 - the genre of the movie (use your new `MovieGenre` enum for this)
 
