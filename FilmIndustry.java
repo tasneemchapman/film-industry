@@ -6,11 +6,36 @@ public class FilmIndustry {
 
     public interface FilmIndustryWorker {
         // abtract methods
+        String firstName();
+        String lastName();
+        int industryYears();
+        boolean shootDigitalFilm();
+        //returns true only if worker specializes in genre thats passed in
+        boolean specializesGenre(MovieGenre genre);
     }
-    String firstName();
 
-    public record Director(String firstName, String lastName, int numYearsActive,
-                           boolean shootDigitalFilm) {
+    public record Director(String firstName, String lastName, int industryYears,
+                           boolean shootDigitalFilm) implements FilmIndustryWorker {
+        @Override
+        public boolean specializesGenre(MovieGenre genre) {
+            boolean theResult = switch(genre)
+                    case Romance, Comedy, Horror, Action, Drama -> true;
+                    case SciFi -> shootDigitalFilm;
+
+
+        }
+    }
+
+    public record Producer(String firstName, String lastName, int industryYears)
+    implements FilmIndustryWorker {}
+
+    public enum actingStyle {Method, Character, Improv}
+    public record Actor(String firstName, String lastName, int industryYears, actingStyle style) implements FilmIndustryWorker {
+
+    }
+
+    public static void main(String[] args) {
+
     }
 
 }
