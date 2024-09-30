@@ -59,17 +59,18 @@ registerFilm("Friday the 13th", "slasher");  // mistake!
 ```
 
 Because "slasher" is just a string, it won't cause an error, but it's clearly not a valid genre. 
-So keeping the `genre` parameter of the `registerFilm` method above makes it very difficult (re: impossible)
-to know fully how to implement the `registerFilm` method... as there can be infinitely many strings passed into
-the method....:
+So keeping the `genre` parameter of type String in the `registerFilm` method above makes it very difficult (re: impossible)
+to know fully how to implement the `registerFilm` method... as there can be infinitely many strings passed in...:
 * "slash"
 * "s"
 * "sx"
 * " slash"
 * "" , etc.
 
-Enums provide a nice solution to this issue by restricting input to valid movie genres only. We'll improve this 
-(still purely hypothetical) method by using the `MovieGenre` enum we defined above:
+You'd need `if-elseif` chains to try to enumerate the possibilities (but it's fruitless as there are infintely many).
+
+Enums provide a nice solution to this issue by restricting input to what we define as valid movie genres only. We'll improve this
+method by using the `MovieGenre` enum we defined above:
 
 ```java
 public boolean registerFilm(String name, MovieGenre genre) {
@@ -94,8 +95,8 @@ registerFilm("Friday the 13th", "slasher"); // compile-time error (doesn't even 
 The compiler catches the mistake, ensuring only valid values from MovieGenre are used.
 
 > **TLDR/takeaway:** using a 'flat' `String` as the datatype for everything doesn't always yield
-> simple or correct code... using java's static type system provides a certain *level* of compile-time
-> code correctness guarantees..
+> easy to work with or correct code... using java's static type system in this way provides a certain *level* of
+> compile-time code correctness (safety) guarantees..
 
 ### Part 1: Stubbing out a FilmIndustryWorker hierarchy  
 
