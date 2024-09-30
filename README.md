@@ -16,6 +16,16 @@ and generally a nice sandbox to try out records and crafting immutable types usi
 In this assignment, we will continue our efforts in modeling movies as well as those who direct, produce, and act in them using inheritance. In particular, the assignment will have you create a base class called `FilmIndustryWorker` with subclasses for `Actor`, `Director`, and `Producer`.  
 Your `Movie` class should not have any subclasses.  
 
+### Part 0: Define an `enum` type: `MovieGenre`
+
+The enum(erated) type should contain the fixed set of values:
+
+```java
+enum MovieGenre {
+  Horror, SciFi, Romance, Comedy, Drama, Action
+}
+```
+
 ### Part 1: Stubbing out a FilmIndustryWorker hierarchy  
 
 - have a `Director`, `Producer`, and `Actor`... they should extend `FilmIndustryWorker`.
