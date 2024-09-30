@@ -95,7 +95,7 @@ registerFilm("Friday the 13th", "slasher"); // compile-time error (doesn't even 
 The compiler catches the mistake, ensuring only valid values from MovieGenre are used.
 
 > **TLDR/takeaway:** using a 'flat' `String` as the datatype for everything doesn't always yield
-> easy to work with or correct code... using java's static type system in this way provides a certain *level* of
+> easy to work with or correct code... using java's static type system in this way provides a certain level of
 > compile-time code correctness (safety) guarantees..
 
 ### Part 1: Stubbing out a FilmIndustryWorker hierarchy  
